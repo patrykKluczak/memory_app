@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 import { combineReducers } from "redux";
 
-// import playerReducer from "../features/player/playerSlice";
+import playerReducer from "../reducers/player";
 // import boardReducer from "../features/board/boardSlice";
 // import resultsReducer from "../features/results/resultsSlice";
 
@@ -22,7 +22,7 @@ export default configureStore({
       storage,
     },
     combineReducers({
-      // player: playerReducer,
+      player: playerReducer,
       // board: boardReducer,
       // results: resultsReducer,
     })
