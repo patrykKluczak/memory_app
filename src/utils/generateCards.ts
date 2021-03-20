@@ -36,7 +36,23 @@ export const cardsArray = (size: number) => {
   return cards;
 };
 
-export const cardsMatch = (cards: Array<String>, values: Array<String>) => {
-  console.log(cards, values);
-  return null;
+export const cardsMatch = (values: Array<String>, cards: Array<String>) => {
+  console.log(values, cards);
+
+  const tmpCards = [...cards];
+  const tmpValues = [...values, ...values];
+
+  const availablePosition = [];
+  for (let i = 0; i < cards.length; i++) {
+    availablePosition.push(i);
+  }
+
+  for (let i = 0; i < tmpValues.length; i++) {
+    const index = Math.floor(Math.random() * (availablePosition.length + 0));
+    const pos = availablePosition[index];
+    tmpCards[pos] = tmpValues[i];
+    availablePosition.splice(index, 1);
+  }
+
+  return tmpCards;
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-// import Cards from "../../components/Cards";
+import Card from "../../components/Card";
 
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
@@ -18,13 +18,14 @@ import {
 
 import { cardsValue, cardsArray, cardsMatch } from "../../utils/generateCards";
 
-const renderCard = (lvl: number) => {
-  return null;
-};
-
 const Game = () => {
-  const [] = useState([]);
+  const [indexCard, setIndexCard] = useState([]);
+
   const gameLvl = useSelector(selectGameLvl);
+  const handleClickCard = (index: any, value: string) => {
+    console.log(index, value);
+    setIndexCard(index);
+  };
 
   return (
     <MainWrapper>
@@ -34,10 +35,19 @@ const Game = () => {
           <Title bold={true}>Memory App</Title>
         </LogoWrapper>
         <GameBoard>
-          {cardsValue(gameLvl)}
-          {cardsArray(gameLvl)}
-
-          {/* <Cards cards={cardsArray()} lastFlip={} selected={} selectCard={} /> */}
+          {cardsMatch(cardsValue(gameLvl), cardsArray(gameLvl)).map(
+            (card: any, index: number) => {
+              return (
+                <Card
+                  key={index}
+                  isFlipped={index === indexCard}
+                  index={index}
+                  value={card}
+                  onClick={handleClickCard}
+                />
+              );
+            }
+          )}
         </GameBoard>
       </MainContent>
     </MainWrapper>
