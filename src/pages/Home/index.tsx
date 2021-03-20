@@ -1,9 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import MainWrapper from "./styled/MainWrapper";
+import MainContent from "./styled/MainContent";
+import Button from "./styled/Button";
+import Input from "./styled/Input";
+import Range from "./styled/Range";
+import Wrapper from "./styled/Wrapper";
+import Message from "./styled/Message";
+import LogoWrapper from "./styled/LogoWrapper";
+import Title from "./styled/Title";
+import Logo from "./styled/Logo";
+
+import { setStoreUserName, setStoreGameLvl } from "../../reducers/player";
 
 const Home = () => {
-  return <MainWrapper>Wrap</MainWrapper>;
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const [userName, setUserName] = useState("");
+  const [gameLvl, setGameLvl] = useState(3);
+  const [validName, setValidName] = useState(false);
+
+  const validUserName = (name: string) => {
+    const regName = /\b[a-zA-Z]+.+[?^ ][a-zA-Z].{1,19}|\b[a-zA-Z]+.+[?^,][a-zA-Z].{1,35}/g;
+    const isValid = name.length ? regName.test(name) : false;
+    setValidName(isValid);
+  };
+
+  const handleUserName = (name: string) => {
+    validUserName(name);
+    setUserName(name);
+  };
+
+  const handleGameRange = (value: string) => {
+    setGameLvl(parseInt(value));
+  };
+
+  const handleButtonClick = () => {
+    dispatch(setStoreUserName(userName));
+    dispatch(setStoreGameLvl(gameLvl));
+
+    history.push("/game");
+  };
+
+  return (
+    <MainWrapper>
+      <MainContent>
+        <LogoWrapper>
+          <Logo />
+          <Title bold={true}>Memory App</Title>
+        </LogoWrapper>
+        <Wrapper>
+          <Input
+            minLength={2}
+            debounceTimeout={300}
+            placeholder="Please, put the user name"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              handleUserName(event.target.value)
+            }
+          />
+          {!validName && userName && (
+            <Message error={true} bold={false}>
+              Invalid user name
+            </Message>
+          )}
+        </Wrapper>
+
+        <Message error={false} bold={true}>
+          Set the game difficulty
+        </Message>
+
+        <Range
+          type="range"
+          min="2"
+          max="5"
+          step="1"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            handleGameRange(event.target.value)
+          }
+          value={gameLvl}
+        />
+        <Button active={validName} onClick={handleButtonClick}>
+          Enter
+        </Button>
+      </MainContent>
+    </MainWrapper>
+  );
 };
 
 export default Home;
