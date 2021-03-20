@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from "../../../images/background-green.jpeg";
+import img from "../../../images/background.jpg";
 
 export default styled.div`
   display: block;
