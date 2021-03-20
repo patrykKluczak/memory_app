@@ -11,6 +11,9 @@ export const player = createSlice({
     addStorePoints: (state, action) => {
       state.points += action.payload;
     },
+    subtractStorePoints: (state, action) => {
+      state.points -= action.payload;
+    },
     clearStorePoints: (state) => {
       state.points = 0;
     },
@@ -25,6 +28,7 @@ export const player = createSlice({
 
 export const {
   addStorePoints,
+  subtractStorePoints,
   setStoreUserName,
   setStoreGameLvl,
   clearStorePoints,
