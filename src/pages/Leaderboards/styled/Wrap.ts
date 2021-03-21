@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { media } from "../../../utils/detection";
 
 export default styled.div`
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  ${media.desktop`
-    max-width: 1024px;
+  ${media.tablet`
+    width: 28%;
   `}
 `;

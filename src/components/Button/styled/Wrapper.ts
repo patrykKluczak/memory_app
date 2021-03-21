@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { media } from "../../../utils/detection";
 
 export default styled.button<{ active: boolean }>`
   background-color: ${(props) => props.theme.colors.grey};
@@ -25,4 +26,10 @@ export default styled.button<{ active: boolean }>`
         background-color: ${theme.colors.yellowDark};
       }
     `};
+
+  ${media.tablet`
+      font-size: 18px;
+      min-width: 218px;
+      min-height: 58px;
+    `}
 `;

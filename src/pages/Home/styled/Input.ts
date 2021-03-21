@@ -13,7 +13,8 @@ export default styled(DebounceInput)<any>`
   font-size: 16px;
 
   ${media.tablet`
-    min-width: 368px;
+    min-width: 428px;
     text-align: left;
+    font-size: 18px;
   `};
 `;

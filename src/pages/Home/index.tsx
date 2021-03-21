@@ -3,10 +3,9 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import Menu from "../../components/Menu";
-
+import Button from "../../components/Button";
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
-import Button from "./styled/Button";
 import Input from "./styled/Input";
 import Range from "./styled/Range";
 import Wrapper from "./styled/Wrapper";

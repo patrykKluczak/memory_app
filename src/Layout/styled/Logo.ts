@@ -10,5 +10,6 @@ export default styled(Logo)`
 
   ${media.tablet`
     width: 120px;
+    height: 90px;
   `}
 `;
