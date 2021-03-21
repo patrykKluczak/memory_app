@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../../utils/detection";
 
 export default styled.input`
   position: relative;
@@ -51,4 +52,30 @@ export default styled.input`
     background: ${(props) => props.theme.colors.yellowLight};
     cursor: pointer;
   }
+
+  ${media.tablet`
+    width: 100%;
+    height: 20px;
+    margin: 24px auto 48px;
+
+    &::-webkit-slider-thumb {
+      width: 40px;
+      height: 40px;
+    }
+
+    &::-moz-range-thumb {
+      width: 40px;
+      height: 40px;
+    }
+
+    &:before {
+      top: 28px;
+      font-size: 20px;
+    }
+
+    &:after {
+      top: 28px;
+      font-size: 20px;
+    }
+  `}
 `;

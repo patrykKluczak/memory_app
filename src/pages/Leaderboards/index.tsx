@@ -8,6 +8,7 @@ import Title from "./styled/Title";
 import ResultsWrapper from "./styled/ResultsWrapper";
 import Result from "./styled/Result";
 import Name from "./styled/Name";
+import Wrap from "./styled/Wrap";
 import Points from "./styled/Point";
 import Lvl from "./styled/Lvl";
 
@@ -29,8 +30,10 @@ const Leaderboards = () => {
               return (
                 <Result key={index}>
                   <Name bold={true}>Name: {el.userName}</Name>
-                  <Points>Points: {el.points}</Points>
-                  <Lvl>Lvl: {el.difficult}</Lvl>
+                  <Wrap>
+                    <Points>Points: {el.points}</Points>
+                    <Lvl>Lvl: {el.difficult}</Lvl>
+                  </Wrap>
                 </Result>
               );
             })

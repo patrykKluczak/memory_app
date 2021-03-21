@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../../utils/detection";
 
 export default styled.div`
   width: 100%;
@@ -11,4 +12,8 @@ export default styled.div`
   padding: 8px 16px;
   border-radius: 4px;
   margin-bottom: 12px;
+
+  ${media.tablet`
+    flex-wrap: no-wrap;
+  `}
 `;

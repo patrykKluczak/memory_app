@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import img from "../../../images/points.png";
+import { media } from "../../../utils/detection";
 
 export default styled.div`
   display: flex;
@@ -11,4 +12,9 @@ export default styled.div`
   background-size: contain;
   background-position: center;
   margin: 16px auto 24px;
+
+  ${media.tablet`
+    width: 268px;
+    height: 132px;
+  `}
 `;
