@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import Menu from "../../components/Menu";
+
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
 import Button from "./styled/Button";
@@ -9,9 +11,6 @@ import Input from "./styled/Input";
 import Range from "./styled/Range";
 import Wrapper from "./styled/Wrapper";
 import Message from "./styled/Message";
-import LogoWrapper from "./styled/LogoWrapper";
-import Title from "./styled/Title";
-import Logo from "./styled/Logo";
 
 import {
   setStoreUserName,
@@ -57,11 +56,8 @@ const Home = () => {
 
   return (
     <MainWrapper>
+      <Menu />
       <MainContent>
-        <LogoWrapper>
-          <Logo />
-          <Title bold={true}>Memory App</Title>
-        </LogoWrapper>
         <Wrapper>
           <Input
             minLength={2}

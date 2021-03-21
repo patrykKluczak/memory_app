@@ -2,19 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import Menu from "../../components/Menu";
 import Card from "../../components/Card";
 import Button from "../../components/Button";
 
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
-import LogoWrapper from "./styled/LogoWrapper";
-import Logo from "./styled/Logo";
-import Title from "./styled/Title";
 import GameBoard from "./styled/GameBoard";
 import PointsWrapper from "./styled/PointsWrapper";
 import Points from "./styled/Points";
 
 import {
+  selectNickname,
   selectGameLvl,
   setStoreGameStart,
   selectGameStart,
@@ -24,6 +23,7 @@ import {
 } from "../../reducers/player";
 
 import { cardsValue, cardsArray, cardsMatch } from "../../utils/generateCards";
+import { localRanking } from "../../utils/localRanking";
 
 const Game = () => {
   const history = useHistory();
@@ -35,6 +35,7 @@ const Game = () => {
   const [valueCard, setValueCard] = useState("");
   const [finishRound, setFinishRound] = useState(false);
 
+  const userName = useSelector(selectNickname);
   const gameLvl = useSelector(selectGameLvl);
   const gameStart = useSelector(selectGameStart);
   const points = useSelector(selectPoints);
@@ -79,6 +80,7 @@ const Game = () => {
     } else {
       history.push("/leaderboards");
     }
+    localRanking(userName, points, gameLvl);
   };
 
   useEffect(() => {
@@ -95,11 +97,8 @@ const Game = () => {
 
   return (
     <MainWrapper>
+      <Menu />
       <MainContent>
-        <LogoWrapper>
-          <Logo />
-          <Title bold={true}>Memory App</Title>
-        </LogoWrapper>
         <GameBoard>
           {cards.map((card: any, index: number) => {
             return (
