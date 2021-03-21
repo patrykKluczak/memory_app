@@ -9,9 +9,6 @@ import Input from "./styled/Input";
 import Range from "./styled/Range";
 import Wrapper from "./styled/Wrapper";
 import Message from "./styled/Message";
-import LogoWrapper from "./styled/LogoWrapper";
-import Title from "./styled/Title";
-import Logo from "./styled/Logo";
 
 import {
   setStoreUserName,
@@ -58,10 +55,6 @@ const Home = () => {
   return (
     <MainWrapper>
       <MainContent>
-        <LogoWrapper>
-          <Logo />
-          <Title bold={true}>Memory App</Title>
-        </LogoWrapper>
         <Wrapper>
           <Input
             minLength={2}
