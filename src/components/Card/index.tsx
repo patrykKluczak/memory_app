@@ -8,22 +8,29 @@ import Sing from "./styled/Sign";
 
 interface CardProps {
   isFlipped: boolean;
-  value: string;
+  value: { sign: string; flipped: boolean };
   index: number;
   onClick: any;
 }
 
-const Card = ({ isFlipped, value, onClick, index }: CardProps) => {
+const Card = ({
+  isFlipped,
+  value: { sign, flipped },
+  onClick,
+  index,
+}: CardProps) => {
   return (
     <Wrapper
       onClick={() => {
-        onClick(index, value);
+        if (!flipped) {
+          onClick(index, sign);
+        }
       }}
     >
-      <Element isFlipped={isFlipped}>
+      <Element isFlipped={isFlipped || flipped}>
         <Avers />
         <Revers>
-          <Sing bold={true}>{value}</Sing>
+          <Sing bold={true}>{sign}</Sing>
         </Revers>
       </Element>
     </Wrapper>

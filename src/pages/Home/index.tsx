@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import MainWrapper from "./styled/MainWrapper";
@@ -13,7 +13,12 @@ import LogoWrapper from "./styled/LogoWrapper";
 import Title from "./styled/Title";
 import Logo from "./styled/Logo";
 
-import { setStoreUserName, setStoreGameLvl } from "../../reducers/player";
+import {
+  setStoreUserName,
+  setStoreGameLvl,
+  setStoreGameStart,
+  clearStorePoints,
+} from "../../reducers/player";
 
 const Home = () => {
   const history = useHistory();
@@ -22,6 +27,11 @@ const Home = () => {
   const [userName, setUserName] = useState("");
   const [gameLvl, setGameLvl] = useState(3);
   const [validName, setValidName] = useState(false);
+
+  useEffect(() => {
+    dispatch(setStoreGameStart(false));
+    dispatch(clearStorePoints());
+  });
 
   const validUserName = (name: string) => {
     const regName = /\b[a-zA-Z]+.+[?^ ][a-zA-Z].{1,19}|\b[a-zA-Z]+.+[?^,][a-zA-Z].{1,35}/g;

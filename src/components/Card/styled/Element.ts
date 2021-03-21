@@ -10,6 +10,7 @@ export default styled.div<{ isFlipped: boolean }>`
   ${({ isFlipped }) =>
     isFlipped &&
     css`
+      pointer-events: none;
       transform: rotateY(180deg);
     `}
 `;

@@ -31,14 +31,12 @@ export const cardsArray = (size: number) => {
   const cards = [];
   const cardsLength = size * 2;
   for (let i = 0; i < cardsLength; i++) {
-    cards.push("");
+    cards.push({ sign: "", flipped: false });
   }
   return cards;
 };
 
-export const cardsMatch = (values: Array<String>, cards: Array<String>) => {
-  console.log(values, cards);
-
+export const cardsMatch = (values: Array<String>, cards: Array<Object>) => {
   const tmpCards = [...cards];
   const tmpValues = [...values, ...values];
 
@@ -50,7 +48,7 @@ export const cardsMatch = (values: Array<String>, cards: Array<String>) => {
   for (let i = 0; i < tmpValues.length; i++) {
     const index = Math.floor(Math.random() * (availablePosition.length + 0));
     const pos = availablePosition[index];
-    tmpCards[pos] = tmpValues[i];
+    tmpCards[pos] = { sign: tmpValues[i], flipped: false };
     availablePosition.splice(index, 1);
   }
 
