@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import Menu from "../../components/Menu";
 import Card from "../../components/Card";
 import Button from "../../components/Button";
 
@@ -21,7 +22,6 @@ import {
   subtractStorePoints,
 } from "../../reducers/player";
 
-import { getLocalResults, setLocalResults } from "../../utils/storage";
 import { cardsValue, cardsArray, cardsMatch } from "../../utils/generateCards";
 import { localRanking } from "../../utils/localRanking";
 
@@ -97,6 +97,7 @@ const Game = () => {
 
   return (
     <MainWrapper>
+      <Menu />
       <MainContent>
         <GameBoard>
           {cards.map((card: any, index: number) => {

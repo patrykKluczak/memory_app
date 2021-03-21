@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import Menu from "../../components/Menu";
+
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
 import Button from "./styled/Button";
@@ -54,6 +56,7 @@ const Home = () => {
 
   return (
     <MainWrapper>
+      <Menu />
       <MainContent>
         <Wrapper>
           <Input
