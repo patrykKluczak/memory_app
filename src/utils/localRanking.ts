@@ -5,7 +5,12 @@ export const localRanking = (
   points: string,
   difficult: string
 ) => {
-  const base = JSON.parse(getLocalResults("results") as any);
+  const base = JSON.parse(getLocalResults("results") as string) as Array<{
+    id: string;
+    userName: string;
+    points: string;
+    difficult: string;
+  }>;
 
   const id = userName.replace(/ /g, "_");
   if (base === null) {

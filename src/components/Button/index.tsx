@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 import Wrapper from "./styled/Wrapper";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   active: boolean;
   onClick: () => void;
   children: ReactNode;

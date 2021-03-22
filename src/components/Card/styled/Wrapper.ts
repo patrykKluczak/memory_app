@@ -18,6 +18,6 @@ export default styled.div`
     width: 140px;
     height: 140px;
     perspective: 400px;
-    margin: 12px;
-`}
+    margin: 8px;
+  `}
 `;
