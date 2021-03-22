@@ -12,8 +12,6 @@ import {
 import { combineReducers } from "redux";
 
 import playerReducer from "../reducers/player";
-// import boardReducer from "../features/board/boardSlice";
-// import resultsReducer from "../features/results/resultsSlice";
 
 export default configureStore({
   reducer: persistReducer(
@@ -23,8 +21,6 @@ export default configureStore({
     },
     combineReducers({
       player: playerReducer,
-      // board: boardReducer,
-      // results: resultsReducer,
     })
   ),
   middleware: getDefaultMiddleware({

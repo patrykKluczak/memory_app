@@ -17,4 +17,12 @@ export default styled.div`
     width: 268px;
     height: 132px;
   `}
+
+  ${media.desktop`
+    margin: 16px auto 8px;
+  `}
+
+  ${media.desktopWide`
+    margin: 16px auto 16px;
+  `}
 `;

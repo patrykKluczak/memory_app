@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import logo from "../../../images/logo.png";
 
-export default styled.div<any>`
+export default styled.div`
   background: url(${logo}) no-repeat;
   background-size: contain;
   background-position: center;

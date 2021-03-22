@@ -8,16 +8,16 @@ export default styled.div`
   margin: 8px;
 
   ${media.tablet`
-    width: 140px;
-    height: 140px;
+    width: 136px;
+    height: 136px;
     perspective: 320px;
     margin: 12px;
   `}
 
   ${media.desktop`
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     perspective: 400px;
-    margin: 12px;
-`}
+    margin: 8px;
+  `}
 `;

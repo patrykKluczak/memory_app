@@ -10,7 +10,7 @@ export const sizes = {
 
 type Keys = keyof typeof sizes;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Breakpoints = { [key in Keys]: (...cssValue: any) => any };
+type Breakpoints = { [key in Keys]: (...cssValue: Array<{}>) => any };
 
 export const media: Breakpoints = Object.keys(sizes).reduce((acc, label) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

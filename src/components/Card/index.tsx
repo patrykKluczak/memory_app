@@ -10,7 +10,7 @@ interface CardProps {
   isFlipped: boolean;
   value: { sign: string; flipped: boolean };
   index: number;
-  onClick: any;
+  onClick: (index: number, sign: string) => void;
 }
 
 const Card = ({

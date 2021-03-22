@@ -16,7 +16,11 @@ import { getLocalResults } from "../../utils/storage";
 import { sortResults, sorts } from "../../utils/sortRanking";
 
 const Leaderboards = () => {
-  const base = JSON.parse(getLocalResults("results") as any);
+  const base = JSON.parse(getLocalResults("results") as string) as Array<{
+    userName: string;
+    points: string;
+    difficult: string;
+  }>;
   const sortBase = sortResults(base, sorts);
 
   return (
