@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import MainWrapper from "./styled/MainWrapper";
 import MainContent from "./styled/MainContent";
@@ -7,7 +7,7 @@ import LogoWrapper from "./styled/LogoWrapper";
 import Title from "./styled/Title";
 
 interface LayoutProps {
-  children?: any;
+  children?: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => (

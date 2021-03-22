@@ -7,7 +7,6 @@ const variables = {
     grey: "#9f9d9e",
     black: "#000",
     white: "#fff",
-
     blue: "#37d8f0",
     darkBlue: "#2697a8",
   },

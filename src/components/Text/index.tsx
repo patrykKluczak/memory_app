@@ -1,11 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import Wrapper from "./styled/Wrapper";
 
 interface TextProps {
-  children: any;
+  children: ReactNode;
   bold?: boolean;
-  props?: any;
 }
 
 const Text = ({ children, bold = false, ...props }: TextProps) => (
